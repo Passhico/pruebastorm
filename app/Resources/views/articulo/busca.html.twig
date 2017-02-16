@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Buscador de Artículos</h1>
+
+{{ form(formArticulo) }}
+
+    {%  set counterPuntos = 0 %}
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Puntos</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for articulo in articulos %}
+        <tr>
+            <td><a href="{{ path('articulo_show', { 'id': articulo.id }) }}">{{ articulo.id }}</a></td>
+            <td>{{ articulo.nombre }}</td>
+            {#http://stackoverflow.com/questions/8990146/increment-declared-integer-variable#}
+            <td>{{ articulo.puntos }}{% set counterPuntos = counterPuntos + articulo.puntos %}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('articulo_show', { 'id': articulo.id }) }}" class="btn btn-warning">Ver</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('articulo_edit', { 'id': articulo.id }) }}" class="btn btn-warning">Cambiar puntos</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('api', { 'id': articulo.id }) }}" class="btn btn-warning">Buscar Id en Api PCcomponentes</a>
+                    </li>
+
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('articulo_new') }}" class="btn btn-warning">Crear nuevo Artículo</a>
+    </li>
+    <li>
+        <a href="{{ path("articulo_index") }}" class="btn btn-warning">indice Articulos</a>
+    </li>
+
+</ul>
+<h1> El total de puntos de todos los artículos seleccionados es :  {{ counterPuntos }}</h1>
+
+
+
+
+{% endblock %}
+

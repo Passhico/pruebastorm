@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Articulo</h1>
+
+    <table class="table table-striped">
+        <tbody>
+        <tr>
+            <th>Id Articulo</th>
+            <td>{{ articulo_idArticle }}</td>
+        </tr>
+        <tr>
+            <th>Nombre Artículo</th>
+            <td>{{ articulo_nombre }}</td>
+        </tr>
+        <tr>
+            <th>Precio</th>
+            <td>{{ articulo_price }}</td>
+        </tr>
+        <tr>
+            <th>Uri en la Api de la imagen</th>
+            <td>
+                {{ articulo_image }}
+            </td>
+        </tr>
+        <tr>
+            <th>Detalle</th>
+            <td>{{ articulo_detalle | raw }}</td>
+        </tr>
+        <tr>
+            <th>Stock Murcia</th>
+            <td>{{ articulo_stockMurcia }}</td>
+        </tr>
+        <tr>
+            <th>Stock Madrid</th>
+            <td>{{ articulo_stockMadrid }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('articulo_index') }}" class="btn btn-success">Listado completo</a>
+        </li>
+
+    </ul>
+    {{ dump(articulo_arrayCompleto) }}
+
+{% endblock %}

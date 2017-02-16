@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 192.168.50.144
+    database_port: 3306
+    database_name: PruebaSymfonyPascual
+    database_user: root
+    database_password: IhtqLg24vbAi
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: ThisTokenIsNotSoSecretChangeIt

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Articulo</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ articulo.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ articulo.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Puntos</th>
+                <td>{{ articulo.puntos }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('articulo_index') }}" class="btn btn-success">Listado completo</a>
+        </li>
+        <li>
+            <a href="{{ path('articulo_edit', { 'id': articulo.id }) }}" class="btn btn-success">Edit</a>
+        </li>
+        <li>
+            <a href="{{ path('buscador', { 'nombre': articulo.nombre }) }}" class="btn btn-success">Buscar Similares</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Borrar Artículo"  class="btn btn-danger">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    {{ dump(articulo) }}
+{% endblock %}
